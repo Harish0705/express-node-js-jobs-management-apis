@@ -8,13 +8,12 @@ const authMiddleware = async (req, res, next) => {
     throw new UnauthenticatedError("Invalid Authorization request");
   }
   const authToken = authorizationHeader.split(" ")[1];
-  console.log(authToken);
   try {
     const userPayload = jwt.verify(authToken, process.env.JWT_SECRET);
     // console.log(userPayload);
     // attach the user to job routes
     req.user = { userId: userPayload.userdId, userName: userPayload.userName };
-    console.log(req.user);
+    // console.log(req.user);
     next();
   } catch (err) {
     // console.log(error)
