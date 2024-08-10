@@ -2,16 +2,21 @@ import express from "express";
 import "dotenv/config";
 import "express-async-errors"; // handle errors
 import { connectDB } from "./db/dbconnect.js";
-import { notFound } from "./middlewares/not-found.js";
-import { errorHandlerMiddleware } from "./middlewares/error-handler.js";
-import { authRouter } from "./routes/authRoutes.js";
+import {
+  notFound,
+  errorHandlerMiddleware,
+  authMiddleware,
+} from "./middlewares/index.js";
+import authRouter from "./routes/authRoutes.js";
+import jobsRouter from "./routes/jobsRoutes.js";
 
 const app = express();
 
 app.use(express.json());
 
 // routes
-app.use('/api/v1/jobs',authRouter)
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/jobs", authMiddleware, jobsRouter);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
