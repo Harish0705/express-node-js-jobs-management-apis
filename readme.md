@@ -10,6 +10,6 @@ __Part 4__ : Ecommerce_APIs : https://github.com/Harish0705/express-node-js-ecom
 
 ## Migrating JavaScript to TypeScript
 
-# typescript-src folder contains typescript code: https://github.com/Harish0705/express-node-js-jobs-management-apis/tree/master/typescript-src
+__typescript-src folder__: contains typescript code - https://github.com/Harish0705/express-node-js-jobs-management-apis/tree/master/typescript-src
 
 
